@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+ 
+}
+
+.container{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(66, 234, 225) , rgb(9, 97, 148));
+    background-color: #fff;
+    flex-direction: column;
+    
+}
+
+.wrapper{
+    background-color: black;
+    border-radius: 1rem;
+    width: 50vw;
+    
+     padding: 1.5rem;
+     color: white;
+}
+
+
+
+header{
+    display: flex;
+   
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+ 
+}
+
+header h1{
+    font-size: 3rem;
+    
+
+}
+
+.inputCont input{
+    accent-color: rgb(46, 67, 203);
+    outline: none;
+    cursor: pointer;
+}
+
+
+.hideKeyCont input{
+    appearance: none;
+    background-color: rgb(71, 70, 70);
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    
+}
+.hideKeyCont input::before{
+    content: "";
+    background-color: rgb(129, 129, 129);
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    border-radius: inherit;
+    top: 0.2rem;
+    left: 0.2rem;
+    transition: all 0.5s ease;
+}
+
+.hideKeyCont input:checked:before{
+    background-color: #fff;
+    left: 1.8rem;
+}
+
+header span{
+    font-size: 1.5rem;
+}
+
+
+.pianoKeys ul {
+display: flex;
+list-style: none;
+color: rgb(164, 159, 159);
+padding: 1rem 0 0 0;
+user-select: none;
+cursor: pointer;
+
+
+
+
+}
+
+.pianoKeys ul li {
+  
+   
+    border: 1px solid black;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+.pianoKeys ul li span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.black span{
+    color: #fff;
+}
+
+.black{
+    background-color: rgb(17, 17, 17) ;
+    margin: 0 -2rem 0 -1.5rem;
+    z-index: 2;
+    height: 10rem;
+    width: 4rem;
+    border-radius:  0 0 0.4rem 0.4rem;
+}
+.black.active{
+    background-image: linear-gradient(to right, rgb(42, 38, 38) , rgb(36, 39, 39));
+
+}
+@media  (max-width:450px) {
+
+
+    .container{
+        height: 20vh;
+    }
+    .wrapper{
+   
+        width: 41rem;
+        height: 31vh;
+        rotate: 90deg;
+        padding: 0.1rem ;
+        
+    }
+
+    
+header h1{
+    font-size: 2rem;
+    
+
+}
+
+    .header{
+        height: 0.2rem;
+        font-size: 1rem;
+        margin-bottom: 4rem;
+    }
+    .inputCont input{
+        font-size: 1rem;
+        width: 5rem;
+        height: 0.3rem;
+    }
+    .inputCont span{
+        font-size: 1rem;
+    }
+    .black{
+        width: 2rem;
+        height: 8rem;
+    }
+    .white{
+        width: 14rem;
+        height: 10rem;
+     
+    }
+    .hideKeyCont{
+        display: none;
+    }
+    .pianoKeys ul li span{
+        display: none;
+    }
+
+    .pianoKeys ul{
+        padding: 0;
+        
+    }
+
+    
+}
+@media  (max-width:900px) {
+    .wrapper{
+      
+        width: 100vw;
+        rotate: 90deg;
+        max-height: 37vh;
+    }
+
+
+    .header{
+        padding: 0;
+    }
+
+    .black{
+        width: 5rem;
+    }
+    .white {
+        width: 10rem;
+     
+    }
+    .hideKeyCont{
+        display: none;
+    }
+    .pianoKeys ul li span{
+        display: none;
+    }
+    
+}
+
+.white span{
+    color: black;
+    display: flex;
+    align-items: center;
+   
+   
+}
+
+.white{
+    background-color: white;
+    height: 15rem;
+    width: 7rem;
+    border-radius: 0.9rem 0.9rem 0.9rem 0.9rem;
+}
+
+.white.active{
+    background-image: linear-gradient(to right, rgb(210, 215, 215) , rgb(184, 187, 188));
+
+}
+
+.pianoKeys .key.hide span{
+    display: none;
+}
+
+
+
+
+

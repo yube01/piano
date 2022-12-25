@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   
+   
+    <title>Piano</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="wrapper">
+            <header>
+          
+                <h1>
+                    Piano
+                </h1>
+                <div class="inputCont">
+                    <span>
+                        Volume
+                        <input class="volume" type="range" min="0" max="1" value="0.5" step="any" >
+                    </span>
+
+                </div>
+               
+               
+                <div class="hideKeyCont">
+                    <span>
+                        Hide Keys
+                        <input class=" checkBox" type="checkbox"  >
+                    </span>
+                </div>
+              
+             
+
+          
+        </header>
+        <div class="pianoKeys">
+            <ul>
+       
+                    <li class="white key" data-key="a"> <span>a</span> </li>
+                    <li class="black key" data-key="s"> <span>s</span> </li>
+                    <li class="white key" data-key="d"> <span>d</span> </li>
+                    <li class="black key" data-key="f"> <span>f</span> </li>
+                    <li class="white key" data-key="q"> <span>q</span> </li>
+                    
+                    
+                    <li class="white key" data-key="w"> <span>w</span> </li>
+                    
+                    <li class="black key" data-key="e"> <span>e</span> </li>
+                    <li class="white key" data-key="r"> <span>r</span> </li>
+                    
+                    <li class="black key" data-key="t"> <span>t</span> </li>
+                    <li class="white key" data-key="z"> <span>z</span> </li>
+                    <li class="black key" data-key="x"> <span>x</span> </li>
+                    <li class="white key" data-key="c"> <span>c</span> </li>
+                    <li class="white key" data-key="g"> <span>g</span> </li>
+                    
+                    <li class="black key" data-key="h"> <span>h</span> </li>
+                    <li class="white key" data-key="o"> <span>o</span> </li>
+                    <li class="black key" data-key="j"> <span>j</span> </li>
+                    <li class="white key" data-key="k"> <span>k</span> </li>
+
+
+             
+            </ul>
+        </div>
+
+        </div>
+       
+    </div>
+    
+</body>
+
+<script>
+
+    const pianoKeys = document.querySelectorAll(" .pianoKeys  .key");
+    volume = document.querySelector(".inputCont input")
+    keys = document.querySelector(".hideKeyCont input")
+    allKey =[],
+    audio = new Audio("/Audio/a.wav")
+
+    const playTune = (key) =>{
+        audio.src = `/Audio/${key}.wav`
+        audio.play();
+
+        const clickedKey = document.querySelector(`[data-key="${key}"]`)
+        clickedKey.classList.add("active")
+        setTimeout(()=>{
+            clickedKey.classList.remove("active")
+        },150)
+    }
+
+
+
+    pianoKeys.forEach(key =>{
+        allKey.push(key.dataset.key)
+        key.addEventListener ("click", ()=>{
+            playTune(key.dataset.key)
+        })
+       
+    })
+
+    // for playing keys which are only available 
+    const keyBoard = (e) =>{
+        if(allKey.includes(e.key)) playTune(e.key)
+
+    }
+
+    //managing volume
+    const manageVol = (e) =>{
+        audio.volume = e.target.value
+    }
+
+    //hiding keys
+    const hideKey = ()=>{
+        pianoKeys.forEach(key => key.classList.toggle("hide"))
+    }
+
+
+    document.addEventListener ("keydown", keyBoard)
+    volume.addEventListener("input", manageVol)
+    keys.addEventListener("click", hideKey)
+
+
+
+
+
+
+</script>
+
+
+</html>
